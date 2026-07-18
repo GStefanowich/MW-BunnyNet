@@ -40,11 +40,15 @@ class Bunny {
         ]);
     }
 
-    public function purgeTag( string $tag, ?string $zoneId = null ): bool {
+    public function purgeTag( Title|string $tag, ?string $zoneId = null ): bool {
         $zoneId ??= $this->zoneId;
 
         if ( !$zoneId ) {
             return false;
+        }
+
+        if ( $tag instanceof Title ) {
+            $tag = $this->getTitleCacheKey($tag);
         }
 
         wfDebugLog('TheElm', 'Purging tag ' . $tag . ' in ' . $zoneId);
