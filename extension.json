@@ -35,11 +35,19 @@
 	],
 	"Hooks": {
 		"HtmlCacheUpdaterAppendUrls": "cache",
-		"HtmlCacheUpdaterVaryUrls": "cache"
+		"HtmlCacheUpdaterVaryUrls": "cache",
+
+		"OutputPageBeforeHTML": "headers"
 	},
 	"HookHandlers": {
 		"cache": {
 			"class": "MediaWiki\\Extension\\Bunny\\Hooks\\CacheHooks",
+			"services": [
+				"BunnyNet"
+			]
+		},
+		"headers": {
+			"class": "MediaWiki\\Extension\\Bunny\\Hooks\\HeaderHooks",
 			"services": [
 				"BunnyNet"
 			]
