@@ -2,9 +2,16 @@
 
 namespace MediaWiki\Extension\Bunny\Hooks;
 
+use MediaWiki\Extension\Bunny\Bunny;
+
 class CacheHooks implements
     \MediaWiki\Cache\Hook\HtmlCacheUpdaterAppendUrlsHook,
     \MediaWiki\Cache\Hook\HtmlCacheUpdaterVaryUrlsHook {
+
+    public function __construct(
+        private readonly Bunny $api
+    ) {
+    }
 
     /**
      * @inheritdoc

@@ -40,7 +40,9 @@
 	"HookHandlers": {
 		"cache": {
 			"class": "MediaWiki\\Extension\\Bunny\\Hooks\\CacheHooks",
-			"services": []
+			"services": [
+				"BunnyNet"
+			]
 		}
 	},
 	"DomainEventIngresses": [
