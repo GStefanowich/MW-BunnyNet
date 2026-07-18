@@ -47,7 +47,7 @@
 		{
 			"class": "MediaWiki\\Extension\\Bunny\\Events\\Ingress",
 			"services": [],
-			"events": [ "" ]
+			"events": [ "PageCreated", "PageMoved", "PageDeleted" ]
 		}
 	],
 	"AutoloadNamespaces": {
