@@ -46,7 +46,9 @@
 	"DomainEventIngresses": [
 		{
 			"class": "MediaWiki\\Extension\\Bunny\\Events\\Ingress",
-			"services": [],
+			"services": [
+				"BunnyNet"
+			],
 			"events": [ "PageCreated", "PageMoved", "PageDeleted" ]
 		}
 	],
