@@ -75,6 +75,10 @@ class Bunny {
             ->isOK();
     }
 
+    public function getTitleCacheKey( Title $title ): string {
+        return base64_encode($title->getBaseTitle());
+    }
+
     /**
      * Configure the image source
      * 

@@ -17,6 +17,7 @@ class CacheHooks implements
      * @inheritdoc
      */
     public function onHtmlCacheUpdaterAppendUrls( $title, $mode, &$append ): void {
+        $append[] = 'tag://' . $this->api->getTitleCacheKey($title);
         wfDebugLog('TheElm', json_encode($append));
     }
 
