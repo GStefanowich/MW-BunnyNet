@@ -1,0 +1,61 @@
+{
+	"manifest_version": 2,
+	"type": "other",
+
+	"name": "Bunny CDN",
+	"author": "[https://theelm.net TheElm]",
+	"descriptionmsg": "bunny-ext-description",
+
+	"url": "https://theelm.net/MW-BunnyNet",
+	"version": "1.0.0",
+	"license-name": "MIT",
+
+	"requires": {
+		"MediaWiki": ">= 1.43.0",
+		"platform": {
+			"php": ">= 8.1"
+		}
+	},
+	"callback": "MediaWiki\\Extension\\Bunny\\Bunny::extensionRegister",
+
+	"config": {
+		"ApiKey": {
+			"value": null,
+			"description": "Bunny.net API key for calling the API with authenticated requests."
+		},
+		"CdnDomain": {
+			"value": null,
+			"description": ""
+		}
+	},
+	"config_prefix": "wgBunny",
+	
+	"ServiceWiringFiles": [
+		"includes/ServiceWiring.php"
+	],
+	"Hooks": {
+		"HtmlCacheUpdaterAppendUrls": "cache",
+		"HtmlCacheUpdaterVaryUrls": "cache"
+	},
+	"HookHandlers": {
+		"cache": {
+			"class": "MediaWiki\\Extension\\Bunny\\Hooks\\CacheHooks",
+			"services": []
+		}
+	},
+	"DomainEventIngresses": [
+		{
+			"class": "MediaWiki\\Extension\\Bunny\\Events\\Ingress",
+			"services": [],
+			"events": [ "" ]
+		}
+	],
+	"AutoloadNamespaces": {
+		"MediaWiki\\Extension\\Bunny\\": "includes/"
+	},
+	"MessagesDirs": {
+		"Bunny CDN": [
+			"i18n"
+		]
+	}
+}
